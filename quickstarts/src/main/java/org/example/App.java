@@ -4,7 +4,7 @@ import io.jawisp.Jawisp;
 
 public class App {
 
-    public static void main(String[] args) {
+    void main() {
         Jawisp.build(config -> config
             .routes(route -> route
                 .get("/", ctx -> ctx.text("Hello, world!"))
