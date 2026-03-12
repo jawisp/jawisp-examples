@@ -12,12 +12,18 @@ repositories {
 dependencies {
     implementation 'io.jawisp:jawisp:1.0.13'
     implementation 'org.slf4j:slf4j-simple:2.0.16'
+
+    // Test dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.3' 
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.3' 
+    
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.3'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -26,3 +32,6 @@ application {
     mainClass = 'org.example.App'
 }
 
+test {
+    useJUnitPlatform()
+}

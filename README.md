@@ -8,6 +8,17 @@ To build and run examples you need:
 
 * Java 21 or later
 
+Run application:
+
+```sh
+./gradlew run
+```
+Test application:
+
+```sh
+./gradlew test
+```
+
 ## Documentation
 
 Each example has a README that contains additional details for building and running the example.
