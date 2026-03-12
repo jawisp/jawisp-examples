@@ -12,11 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
 
+    private static int TEST_PORT = 9876;
     private static Jawisp server;
 
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
+                .port(TEST_PORT)
                 .routes(route -> route
                         .get("/", ctx -> ctx.text("Hello, world!"))));
         server.start();
@@ -31,7 +33,7 @@ public class AppTest {
     public void testRootEndpoint() throws Exception {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("http://localhost:8080/"))
+                .uri(new URI("http://localhost:" + TEST_PORT))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
