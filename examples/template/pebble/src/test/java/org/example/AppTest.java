@@ -15,14 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest {
 
-    private static int TEST_PORT = 9877;
-    // private static int testPort;
+    private static int testPort;
     private static Jawisp server;
 
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
-                .port(TEST_PORT)
+                .port(0)
                 .templateEngine("pebble")
                 .staticResources("/static")
                 .routes(route -> route
@@ -30,6 +29,9 @@ public class AppTest {
                                 "name", "John Smith",
                                 "title", "Jawisp Example")))));
         server.start();
+
+        // Get the actual port Jawisp bound to
+        testPort = server.config().port();
     }
 
     @AfterAll
@@ -41,7 +43,7 @@ public class AppTest {
     public void testRootEndpoint() throws Exception {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("http://localhost:" + TEST_PORT))
+                .uri(new URI("http://localhost:" + testPort))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
