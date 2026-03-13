@@ -8,16 +8,13 @@ To build and run examples you need:
 
 * Java 21 or later
 
-Run application:
+Run examples:
 
-```sh
-./gradlew run
-```
-Test application:
+- **`./gradlew :examples:quickstarts:run`**: Run quickstarts example
 
-```sh
-./gradlew test
-```
+Test examples:
+
+- **`./gradlew :examples:quickstarts:test`**: Test quickstarts example
 
 ## Documentation
 
