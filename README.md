@@ -12,11 +12,13 @@ Run examples:
 
 - **`./gradlew :examples:quickstarts:run`**: Run quickstarts example
 - **`./gradlew :examples:template:pebble:run`**: Run Pebble template engine example
+- **`./gradlew :examples:template:thymeleaf:run`**: Run Thymeleaf template engine example
 
 Test examples:
 
 - **`./gradlew :examples:quickstarts:test`**: Test quickstarts example
 - **`./gradlew :examples:template:pebble:test`**: Test Pebble template engine example
+- **`./gradlew :examples:template:thymeleaf:test`**: Test Thymeleaf template engine example
 
 ## Documentation
 

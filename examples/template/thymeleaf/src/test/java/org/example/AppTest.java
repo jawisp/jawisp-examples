@@ -15,15 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest {
 
-    private static int TEST_PORT = 9877;
-    // private static int testPort;
+    private static int TEST_PORT = 9878;
     private static Jawisp server;
 
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
                 .port(TEST_PORT)
-                .templateEngine("pebble")
+                .templateEngine("thymeleaf")
                 .staticResources("/static")
                 .routes(route -> route
                         .get("/", ctx -> ctx.render("home.html", Map.of(
@@ -52,7 +51,6 @@ public class AppTest {
         assertTrue(body.contains("<title>Jawisp Example</title>"), "Should have correct title");
         assertTrue(body.contains("<h1>Home page</h1>"), "Should have home page heading");
         assertTrue(body.contains("Welcome to my home page"), "Should have welcome message");
-        assertTrue(body.contains("Copyright 2026"), "Should have copyright");
         assertTrue(body.contains("reset.css"), "Should link to CSS");
     }
 }

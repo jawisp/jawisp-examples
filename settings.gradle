@@ -14,3 +14,4 @@ rootProject.name = 'jawisp-examples'
 
 include 'examples:quickstarts'
 include 'examples:template:pebble'
+include 'examples:template:thymeleaf'
