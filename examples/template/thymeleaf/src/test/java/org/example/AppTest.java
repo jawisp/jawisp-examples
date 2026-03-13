@@ -21,7 +21,7 @@ public class AppTest {
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
-                .port(0)
+                .port(0)    // random port
                 .templateEngine("thymeleaf")
                 .staticResources("/static")
                 .routes(route -> route
@@ -32,7 +32,6 @@ public class AppTest {
 
         // Get the actual port Jawisp bound to
         testPort = server.config().port();
-
     }
 
     @AfterAll

@@ -21,7 +21,7 @@ public class AppTest {
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
-                .port(0)
+                .port(0)    // random port
                 .templateEngine("pebble")
                 .staticResources("/static")
                 .routes(route -> route

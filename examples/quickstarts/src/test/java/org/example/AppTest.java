@@ -18,7 +18,7 @@ public class AppTest {
     @BeforeAll
     public static void startServer() {
         server = Jawisp.build(config -> config
-                .port(0)
+                .port(0)    // random port
                 .routes(route -> route
                         .get("/", ctx -> ctx.text("Hello, world!"))));
         server.start();
