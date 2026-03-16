@@ -2,7 +2,7 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 
 [versions]
-jawisp = "1.0.17"
+jawisp = "1.0.18"
 
 [libraries]
 jawisp = { module = "io.jawisp:jawisp", version.ref = "jawisp" }

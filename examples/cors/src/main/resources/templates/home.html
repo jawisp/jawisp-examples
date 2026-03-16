@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>Home page</h1>
+<p>Welcome to my home page. My name is <span id="username">{{ name }}</span></p>
+<script>
+	fetch('http://localhost:8080/api/v1/users', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },  // ← Triggers preflight
+		body: JSON.stringify({ id: '1', name: 'Test User', age: '33' })
+	})
+	.then(response => response.json())
+	.then(json => {
+		const el = document.getElementById('username');
+		el.textContent = json.name;
+	})
+</script>
+{% endblock %}
