@@ -12,7 +12,8 @@ plugins {
 
 rootProject.name = 'jawisp-examples'
 
+include 'examples:cors'
+include 'examples:properties'
 include 'examples:quickstarts'
 include 'examples:template:pebble'
 include 'examples:template:thymeleaf'
-include 'examples:cors'
