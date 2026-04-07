@@ -12,6 +12,11 @@ public class App {
         ctx.status(201).json(ctx.jsonMapper().toJsonString(user, User.class));
     }
 
+    static void getUser(Context ctx) {
+        var id = ctx.pathParam("id");
+        ctx.status(200).json("{\"userId\":\"" + id + "\", \"name\":\"Taras\"}");
+    }
+
     static void homePage(Context ctx) {
         ctx.render("home.html", Map.of(
                 "name", "John Smith",
@@ -25,7 +30,9 @@ public class App {
                 .cors(cors -> cors.origins("http://localhost:8080"))
                 .routes(route -> route
                         .get("/", App::homePage)
-                        .post("/api/v1/users", App::createUser)))
+                        .get("/api/v1/users/:id", App::getUser)
+                        .post("/api/v1/users", App::createUser)
+                    ))
                 .start();
     }
 }
